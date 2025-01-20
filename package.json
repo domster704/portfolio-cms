@@ -11,6 +11,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@_sh/strapi-plugin-ckeditor": "^5.0.1",
     "@strapi/plugin-cloud": "5.6.0",
     "@strapi/plugin-users-permissions": "5.6.0",
     "@strapi/strapi": "5.6.0",
@@ -31,6 +32,6 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "d87efcea-5036-46b3-be5b-6a3cbf825647"
+    "uuid": "c04781f7-4963-4cfc-a5e7-77970620f5c1"
   }
 }

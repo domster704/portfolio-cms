@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jobs",
+  "info": {
+    "singularName": "job",
+    "pluralName": "jobs",
+    "displayName": "Работа",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "companyName": {
+      "type": "string"
+    },
+    "companyURL": {
+      "type": "text"
+    },
+    "date": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    },
+    "subPosition": {
+      "type": "json"
+    },
+    "skills": {
+      "type": "json"
+    },
+    "about": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}
