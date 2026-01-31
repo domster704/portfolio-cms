@@ -397,7 +397,7 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::job.job'> &
       Schema.Attribute.Private;
-    order: Schema.Attribute.Integer;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<100>;
     position: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     skills: Schema.Attribute.JSON;
