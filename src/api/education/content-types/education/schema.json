@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "jobs",
+  "collectionName": "educations",
   "info": {
-    "singularName": "job",
-    "pluralName": "jobs",
-    "displayName": "Работа",
-    "description": ""
+    "singularName": "education",
+    "pluralName": "educations",
+    "displayName": "Образование"
   },
   "options": {
     "draftAndPublish": false
@@ -16,21 +15,23 @@
     }
   },
   "attributes": {
-    "companyName": {
+    "name": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
-    "companyURL": {
-      "type": "text",
+    "url": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
-      }
+      },
+      "required": true
     },
     "date": {
       "type": "string",
@@ -38,25 +39,19 @@
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
-    "position": {
+    "specialization": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
-    "skills": {
-      "type": "json",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "about": {
+    "description": {
       "type": "customField",
       "pluginOptions": {
         "i18n": {
@@ -66,7 +61,25 @@
       "customField": "plugin::ckeditor5.CKEditor",
       "options": {
         "preset": "defaultHtml"
-      }
+      },
+      "required": true
+    },
+    "educationType": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "default": "additionalEducation",
+      "enum": [
+        "bachelor",
+        "master",
+        "professionalRetraining",
+        "additionalEducation",
+        "course"
+      ]
     },
     "order": {
       "type": "integer",
@@ -75,7 +88,8 @@
           "localized": false
         }
       },
-      "default": 100
+      "required": true,
+      "default": 10
     }
   }
 }
