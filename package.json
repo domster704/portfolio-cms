@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
+  "packageManager": "pnpm@10.15.0",
   "scripts": {
     "build": "strapi build",
     "deploy": "strapi deploy",
@@ -12,25 +13,25 @@
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^5.0.1",
-    "@strapi/plugin-cloud": "5.6.0",
-    "@strapi/plugin-users-permissions": "5.6.0",
-    "@strapi/strapi": "5.6.0",
-    "pg": "8.8.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "^6.0.0",
-    "sharp": "^0.34.1",
+    "@strapi/plugin-cloud": "5.52.1",
+    "@strapi/plugin-users-permissions": "5.52.1",
+    "@strapi/strapi": "5.52.1",
+    "pg": "^8.23.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.6",
+    "sharp": "^0.34.5",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   },
   "engines": {
-    "node": ">=18.0.0 <=22.x.x",
-    "npm": ">=6.0.0"
+    "node": ">=22.0.0 <23",
+    "pnpm": ">=9"
   },
   "strapi": {
     "uuid": "c04781f7-4963-4cfc-a5e7-77970620f5c1"
