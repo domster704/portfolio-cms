@@ -1,30 +1,35 @@
-# Creating multi-stage build for production
-FROM node:20-alpine3.20 AS build
-RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git > /dev/null 2>&1
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
+ARG NODE_VERSION=20
+ARG PNPM_VERSION=10.14.0
 
-WORKDIR /opt/
-COPY package.json package-lock.json ./
-RUN npm install -g node-gyp
-RUN npm config set fetch-retry-maxtimeout 600000 -g && npm ci
-ENV PATH=/opt/node_modules/.bin:$PATH
-WORKDIR /opt/app
+FROM node:${NODE_VERSION}-bookworm-slim AS base
+
+RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
+
+WORKDIR /app
+
+FROM base AS builder
+
+COPY package.json pnpm-lock.yaml ./
+
+RUN --mount=type=cache,id=pnpm-store,target=/root/.local/share/pnpm/store \
+    pnpm install --frozen-lockfile
+
 COPY . .
-RUN npm run build
 
-# Creating final production image
-FROM node:20-alpine3.20
-RUN apk add --no-cache vips-dev
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
-WORKDIR /opt/
-COPY --from=build /opt/node_modules ./node_modules
-WORKDIR /opt/app
-COPY --from=build /opt/app ./
-ENV PATH=/opt/node_modules/.bin:$PATH
+ENV STRAPI_TELEMETRY_DISABLED=true
 
-#RUN chown -R node:node /opt/app
-#USER node
+RUN pnpm build && pnpm prune --prod
+
+FROM node:${NODE_VERSION}-bookworm-slim AS runner
+
+ENV NODE_ENV=production
+ENV STRAPI_TELEMETRY_DISABLED=true
+
+WORKDIR /app
+
+COPY --from=builder --chown=node:node /app ./
+
+USER node
 EXPOSE 1337
+
 CMD ["npm", "run", "start"]
