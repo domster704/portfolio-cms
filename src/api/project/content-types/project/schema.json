@@ -16,12 +16,7 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
     },
     "name": {
       "type": "string"
@@ -45,15 +40,15 @@
     },
     "links": {
       "type": "component",
-      "repeatable": true,
-      "component": "blocks.ssylka"
+      "component": "blocks.ssylka",
+      "repeatable": true
     },
     "about": {
       "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
       "options": {
         "preset": "defaultHtml"
-      },
-      "customField": "plugin::ckeditor5.CKEditor"
+      }
     }
   }
 }

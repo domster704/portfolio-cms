@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_skill_group_gruppa_navykov",
+  "info": {
+    "displayName": "Группа навыков",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "skills": {
+      "type": "json",
+      "required": true
+    }
+  },
+  "config": {}
+}
