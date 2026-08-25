@@ -523,6 +523,22 @@ export interface ApiEducationEducation extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    educationType: Schema.Attribute.Enumeration<
+      [
+        'bachelor',
+        'master',
+        'professionalRetraining',
+        'additionalEducation',
+        'course',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'additionalEducation'>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -535,14 +551,30 @@ export interface ApiEducationEducation extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<10>;
     publishedAt: Schema.Attribute.DateTime;
+    specialization: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     url: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
   };
