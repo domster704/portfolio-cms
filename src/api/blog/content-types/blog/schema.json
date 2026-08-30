@@ -25,15 +25,11 @@
       "required": true
     },
     "description": {
-      "type": "customField",
+      "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultHtml"
       },
       "required": true
     },
@@ -45,6 +41,19 @@
         }
       },
       "targetField": "name",
+      "required": true
+    },
+    "content": {
+      "type": "customField",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
       "required": true
     }
   }
