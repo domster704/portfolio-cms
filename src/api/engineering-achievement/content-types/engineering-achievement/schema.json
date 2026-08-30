@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "engineering_achievements",
+  "info": {
+    "singularName": "engineering-achievement",
+    "pluralName": "engineering-achievements",
+    "displayName": "Инженерные достижения"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {}
+}
